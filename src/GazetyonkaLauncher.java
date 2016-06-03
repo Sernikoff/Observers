@@ -1,29 +1,18 @@
+import java.awt.event.ActionEvent;
+import java.util.List;
 import java.util.Observable;
+import java.util.Observer;
 
-public class GazetyonkaLauncher extends Observable {
+
+public class GazetyonkaLauncher{
     public static void main(String[] args) {
 
         Subscriber s1 = new Subscriber();
         Subscriber s2 = new Subscriber();
         Subscriber s3 = new Subscriber();
 
-        Jurnal murzilka = new Jurnal();
+        Jurnal murzilka = new Jurnal(s1, s2);
 
-        murzilka.addObserver(s1);
-        murzilka.addObserver(s3);
-
-        Newspaper pravda = new Newspaper();
-
-        pravda.addObserver(s1);
-        pravda.addObserver(s2);
-        pravda.addObserver(s3);
-
-
-        if(murzilka.isNewNumber()){
-            murzilka.notifyObserver();
-         }
-        if(pravda.isNewNumber()){
-            pravda.notifyObserver();
-        }
+        Newspaper pravda = new Newspaper(s1, s2, s3);
     }
 }

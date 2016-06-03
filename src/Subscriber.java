@@ -1,7 +1,11 @@
+import java.util.Observable;
+import java.util.Observer;
 
-public class Subscriber implements Observer{
+public class Subscriber implements Observer {
 
-    public void update(Pressa press) {
-        System.out.println(this.toString()+" notify from "+ press.toString());
+    @Override
+    public void update(Observable o, Object arg) {
+
+        System.out.println(this.toString()+" notify from "+o.toString());
     }
 }

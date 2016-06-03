@@ -1,9 +1,17 @@
-/**
- * Created by Сергей on 01.06.2016.
- */
-public class Jurnal extends Pressa{
-    Jurnal(){
-        newNumber = true;
-    }
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Observable;
+
+
+public class Jurnal extends Observable{
+
+    Jurnal(Subscriber... s){
+
+        for (Subscriber elem: s){
+        addObserver(elem);
+        }
+        setChanged();
+        notifyObservers();
+    }
 }
